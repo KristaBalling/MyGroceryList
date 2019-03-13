@@ -18,7 +18,8 @@ import Util.Constants;
 public class DatabaseHandler extends SQLiteOpenHelper {
 
     private Context ctx;
-    public DatabaseHandler(Context context ) {
+
+    public DatabaseHandler(Context context) {
         super(context, Constants.DB_NAME, null, Constants.DB_VERSION);
         this.ctx = context;
     }
@@ -27,7 +28,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_GROCERY_TABLE = "CREATE TABLE " + Constants.TABLE_NAME + "("
                 + Constants.KEY_ID + "INTEGER PRIMARY KEY," + Constants.KEY_GROCERY_ITEM + " TEXT,"
-                + Constants.KEY_QTY_NUMBER +  " TEXT,"
+                + Constants.KEY_QTY_NUMBER + " TEXT,"
                 + Constants.KEY_DATE_NAME + " LONG);";
 
         db.execSQL(CREATE_GROCERY_TABLE);
@@ -63,10 +64,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private Grocery getGrocery(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        Cursor cursor = db.query(Constants.TABLE_NAME, new String[] {Constants.KEY_ID,
-        Constants.KEY_GROCERY_ITEM, Constants.KEY_QTY_NUMBER, Constants.KEY_DATE_NAME},
+        Cursor cursor = db.query(Constants.TABLE_NAME, new String[]{Constants.KEY_ID,
+                        Constants.KEY_GROCERY_ITEM, Constants.KEY_QTY_NUMBER, Constants.KEY_DATE_NAME},
                 Constants.KEY_ID + "=?",
-                new String[] {String.valueOf(id)}, null, null, null, null);
+                new String[]{String.valueOf(id)}, null, null, null, null);
 
         if (cursor != null) {
             cursor.moveToFirst();
@@ -79,7 +80,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             //convert timestamp to something readable
             java.text.DateFormat dateFormat = java.text.DateFormat.getDateInstance();
             String formatedDate = dateFormat.format(new Date(cursor.getLong(cursor.getColumnIndex(Constants.KEY_DATE_NAME)))
-            .getTime());
+                    .getTime());
 
             grocery.setDateItemAdded(formatedDate);
 
@@ -88,20 +89,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         return null;
     }
-
-    Grocery grocery = new Grocery();
-    grocery.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(Constants.KEY_ID))));
-    grocery.setName(cursor.getString(cursor.getColumnIndex(Constants.KEY_GROCERY_ITEM)));
-    grocery.setQuantity(cursor.getString(cursor.getColumnIndex(Constants.KEY_QTY_NUMBER)));
-
-    //convert timestamp to something readable
-    java.text.DateFormat dateFormat = java.text.DateFormat.getDateInstance();
-    String formatedDate = dateFormat.format(new Date(cursor.getLong(cursor.getColumnIndex(Constants.KEY_DATE_NAME)))
-            .getTime());
-
-    grocery.setDateItemAdded(formatedDate);
-
-    return grocery;
 
 
 
@@ -119,7 +106,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 Grocery grocery = new Grocery();
-                grocery.setId();
+                grocery.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(Constants.KEY_ID))));
+                grocery.setName(cursor.getString(cursor.getColumnIndex(Constants.KEY_GROCERY_ITEM)));
+                grocery.setQuantity(cursor.getString(cursor.getColumnIndex(Constants.KEY_QTY_NUMBER)));
+
 
                 java.text.DateFormat dateFormat = java.text.DateFormat.getDateInstance();
                 String formatedDate = dateFormat.format(new Date(cursor.getLong(cursor.getColumnIndex(Constants.KEY_DATE_NAME)))
@@ -128,7 +118,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 grocery.setDateItemAdded(formatedDate);
 
                 groceryList.add(grocery);
-
 
             }while (cursor.moveToNext());
         }
@@ -149,8 +138,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 String.valueOf(grocery.getId())
 
         });
-
-        return 0;
     }
 
     //Delete Grocery
@@ -158,6 +145,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(Constants.TABLE_NAME, Constants.KEY_ID + " =?",
                 new String[] {String.valueOf(id)});
+
+        db.close();
 
     }
 
