@@ -126,7 +126,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     //Get count
     public int getGroceriesCount() {
+        String countQuery = "SELECT * FROM " + Constants.TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
 
-        return 0;
+        Cursor cursor = db.rawQuery(countQuery, null);
+
+        return cursor.getCount();
     }
 }
