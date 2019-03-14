@@ -46,7 +46,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     //CRUD Operations
 
     //Add Grocery
-    public void AddGrocery(Grocery grocery) {
+    public void addGrocery(Grocery grocery) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -61,7 +61,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     //Get a Grocery
-    private Grocery getGrocery(int id) {
+    public Grocery getGrocery(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         Cursor cursor = db.query(Constants.TABLE_NAME, new String[]{Constants.KEY_ID,
