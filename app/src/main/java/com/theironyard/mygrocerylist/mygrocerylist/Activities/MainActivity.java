@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
                 saveGroceryToDB(v);
 
-            }
+
         });
 
         private void saveGroceryToDB(View v) {
@@ -92,3 +92,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
+
+
+
