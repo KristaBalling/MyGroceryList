@@ -1,6 +1,7 @@
 package UI;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.theironyard.mygrocerylist.mygrocerylist.Activities.DetailsActivity;
 import com.theironyard.mygrocerylist.mygrocerylist.R;
 
 import java.util.List;
@@ -77,7 +79,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //go to next screen
+                    //go to next screen/ DetailsActivity
+                    int position = getAdapterPosition();
+
+                    Grocery grocery = groceryItems.get(position);
+                    Intent intent = new Intent(context, DetailsActivity.class);
+                    intent.putExtra("name", grocery.getName());
+                    intent.putExtra("quantity", grocery.getQuantity());
+                    intent.putExtra("id", grocery.getId());
+                    intent.putExtra("date", grocery.getDateItemAdded());
+                    context.startActivity(intent);
                 }
             });
         }

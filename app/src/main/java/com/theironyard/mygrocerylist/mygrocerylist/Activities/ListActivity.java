@@ -60,6 +60,7 @@ public class ListActivity extends AppCompatActivity {
             grocery.setId(c.getId());
             grocery.setDateItemAdded("Added on: " + c.getDateItemAdded());
 
+
             listItems.add(grocery);
         }
 
