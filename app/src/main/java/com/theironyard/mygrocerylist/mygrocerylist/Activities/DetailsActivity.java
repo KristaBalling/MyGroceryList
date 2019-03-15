@@ -21,7 +21,7 @@ public class DetailsActivity extends AppCompatActivity {
 
         itemName = (TextView) findViewById(R.id.itemNameDet);
         quantity = (TextView) findViewById(R.id.quantityDet);
-        dateAdded = (TextView) findViewById(R.id.dateAdded);
+        dateAdded = (TextView) findViewById(R.id.dateAddedDet);
 
         Bundle bundle = getIntent().getExtras();
 

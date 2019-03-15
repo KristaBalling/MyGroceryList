@@ -1,4 +1,4 @@
-package Model;
+package com.theironyard.Model;
 
 public class Grocery {
 
@@ -26,22 +26,27 @@ public class Grocery {
     }
 
     public String getQuantity() {
+
         return quantity;
     }
 
     public void setQuantity(String quantity) {
+
         this.quantity = quantity;
     }
 
     public String getDateItemAdded() {
+
         return dateItemAdded;
     }
 
     public void setDateItemAdded(String dateItemAdded) {
+
         this.dateItemAdded = dateItemAdded;
     }
 
     public int getId() {
+
         return id;
     }
 
