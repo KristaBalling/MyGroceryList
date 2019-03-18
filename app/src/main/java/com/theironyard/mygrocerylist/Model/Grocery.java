@@ -1,4 +1,4 @@
-package com.theironyard.Model;
+package com.theironyard.mygrocerylist.Model;
 
 public class Grocery {
 

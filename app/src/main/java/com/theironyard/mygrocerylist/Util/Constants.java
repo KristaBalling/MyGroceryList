@@ -1,4 +1,4 @@
-package com.theironyard.Util;
+package com.theironyard.mygrocerylist.Util;
 
 public class Constants {
 

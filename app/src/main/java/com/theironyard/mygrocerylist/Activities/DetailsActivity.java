@@ -1,12 +1,12 @@
-package com.theironyard.mygrocerylist.mygrocerylist.Activities;
+package com.theironyard.mygrocerylist.Activities;
 
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.widget.TextView;
+
 
 import com.theironyard.mygrocerylist.mygrocerylist.R;
 
-import org.w3c.dom.Text;
 
 public class DetailsActivity extends AppCompatActivity {
     private TextView itemName;
@@ -23,16 +23,14 @@ public class DetailsActivity extends AppCompatActivity {
         quantity = (TextView) findViewById(R.id.quantityDet);
         dateAdded = (TextView) findViewById(R.id.dateAddedDet);
 
+
         Bundle bundle = getIntent().getExtras();
 
-        if ( bundle != null) {
+        if ( bundle != null ) {
             itemName.setText(bundle.getString("name"));
             quantity.setText(bundle.getString("quantity"));
             dateAdded.setText(bundle.getString("date"));
             groceryId = bundle.getInt("id");
         }
-
     }
-
-
 }

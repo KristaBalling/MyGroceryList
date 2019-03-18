@@ -1,11 +1,10 @@
-package com.theironyard.UI;
+package com.theironyard.mygrocerylist.UI;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +12,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.theironyard.mygrocerylist.mygrocerylist.Activities.DetailsActivity;
+import com.theironyard.mygrocerylist.Activities.DetailsActivity;
 import com.theironyard.mygrocerylist.mygrocerylist.R;
 import java.util.List;
-import java.util.Date;
-import com.theironyard.Data.DatabaseHandler;
-import com.theironyard.Model.Grocery;
 
-import org.w3c.dom.Text;
+import com.theironyard.mygrocerylist.Data.DatabaseHandler;
+import com.theironyard.mygrocerylist.Model.Grocery;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 

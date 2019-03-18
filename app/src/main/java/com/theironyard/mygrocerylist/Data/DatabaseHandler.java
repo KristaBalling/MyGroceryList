@@ -1,4 +1,4 @@
-package com.theironyard.Data;
+package com.theironyard.mygrocerylist.Data;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.theironyard.Model.Grocery;
-import com.theironyard.Util.Constants;
+import com.theironyard.mygrocerylist.Model.Grocery;
+import com.theironyard.mygrocerylist.Util.Constants;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 

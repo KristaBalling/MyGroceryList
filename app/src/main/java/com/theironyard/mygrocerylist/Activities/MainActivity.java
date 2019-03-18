@@ -1,4 +1,4 @@
-package com.theironyard.mygrocerylist.mygrocerylist.Activities;
+package com.theironyard.mygrocerylist.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,9 +14,11 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.theironyard.mygrocerylist.Data.DatabaseHandler;
+
+
+import com.theironyard.mygrocerylist.Model.Grocery;
 import com.theironyard.mygrocerylist.mygrocerylist.R;
-import com.theironyard.Data.DatabaseHandler;
-import com.theironyard.Model.Grocery;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -125,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                 //start a new activity
                 startActivity(new Intent(MainActivity.this, ListActivity.class));
             }
-        }, 1000); //1 second.
+        }, 1200); //1 second.
     }
 
     public void byPassActivity() {
